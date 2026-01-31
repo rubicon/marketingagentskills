@@ -10,8 +10,6 @@ I am the founder of [Marketing In Action](https://marketinginaction.xyz), an exe
 
 I've been a founding marketer multiple times, building marketing functions, teams, and systems from the ground up.
 
-I've published more than 50 playbooks, templates, and practical breakdowns across product marketing, growth marketing, GTM engineering, AI, strategy, content, lifecycle, demand generation, and product-led growth. Everything I share is rooted in real execution, not theory.
-
 I am currently experimenting with vibe coding, and this is one of the projects I'm building with that knowledge.
 
 This repo is the Claude skills version of the [MIA Resources](https://marketinginaction.xyz/resources/) I have developed:
