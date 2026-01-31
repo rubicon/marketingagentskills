@@ -4,11 +4,7 @@ AI agent skills for marketing tasks, built for [Claude Code](https://docs.anthro
 
 ---
 
-I'm [James](https://www.jamespraise.xyz). I'm a Product and Growth Marketing consultant with close to a decade of experience helping startups launch, scale, and grow with clarity and execution.
-
-I am the founder of [Marketing In Action](https://marketinginaction.xyz), an execution-first marketing ecosystem for product marketers, growth marketers, founders, and GTM operators.
-
-I've been a founding marketer multiple times, building marketing functions, teams, and systems from the ground up.
+I'm [James](https://www.jamespraise.xyz), founder of [Marketing In Action](https://marketinginaction.xyz) and a Product Marketing consultant with close to a decade of startup experience. I've been a founding marketer multiple times, building marketing functions and systems from scratch.
 
 I am currently experimenting with vibe coding, and this is one of the projects I'm building with that knowledge.
 
