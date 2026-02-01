@@ -39,6 +39,7 @@ Skills are markdown files that give AI agents specialized knowledge to execute s
 | [icp-persona](skills/icp-persona) | Generate ICP and buyer/user persona documents for B2B and B2C products |
 | [landing-page](skills/landing-page) | Create landing page copy using modular section templates for homepages, feature pages, and campaigns |
 | [lifecycle-marketing-campaigns](skills/lifecycle-marketing-campaigns) | Create lifecycle marketing campaign flows for SaaS, digital products, and service businesses |
+| [marketing-product-ideas](skills/marketing-product-ideas) | Generate marketing and product ideas grounded in behavioral principles and proven PLG experiments |
 | [n8n-automation](skills/n8n-automation) | Design, build, debug, and document n8n workflows and AI agent automations |
 | [openclaw](skills/openclaw) | Design, build, debug, and document OpenClaw workflows and AI assistant configurations |
 | [performance-marketing](skills/performance-marketing) | Plan, review, and optimize paid campaigns across Google, Meta, LinkedIn, TikTok, YouTube, Reddit, X, Snapchat |
@@ -134,7 +135,7 @@ You can also invoke skills directly:
 `icp-persona` `customer-segments` `case-study-builder`
 
 ### Growth & Experimentation
-`experimentation` `performance-marketing` `lifecycle-marketing-campaigns`
+`experimentation` `marketing-product-ideas` `performance-marketing` `lifecycle-marketing-campaigns`
 
 ### Automation & Technical
 `n8n-automation` `openclaw` `clay-gtm-outbound` `vibe-coding`
