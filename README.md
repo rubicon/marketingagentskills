@@ -1,6 +1,6 @@
 # Marketing Agent Skills
 
-21 AI agent skills for marketing tasks, built for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) and similar AI coding assistants (Cursor, Windsurf, Cline, Roo Code).
+22 AI agent skills for marketing tasks, built for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) and similar AI coding assistants (Cursor, Windsurf, Cline, Roo Code).
 
 ---
 
@@ -42,6 +42,7 @@ Skills are markdown files that give AI agents specialized knowledge to execute s
 | [press-release](skills/press-release) | Create complete press release packages with newsworthiness evaluation and multiple headlines |
 | [product-launch-gtm](skills/product-launch-gtm) | Guide end-to-end product and feature launch planning with launch sizing, GTM strategy, and success measurement |
 | [product-messaging](skills/product-messaging) | Create complete messaging frameworks including value propositions, taglines, and elevator pitches |
+| [product-onboarding-activation](skills/product-onboarding-activation) | Design complete onboarding, activation, retention, and expansion lifecycles for SaaS products |
 | [product-positioning](skills/product-positioning) | Create complete positioning frameworks with target customers, competitive differentiation, and market categories |
 | [saas-landing-pages](skills/saas-landing-pages) | Generate complete SaaS landing page drafts using 7 framework templates for different page types |
 | [vibe-coding](skills/vibe-coding) | Guide beginner-to-intermediate developers through web development, Claude skills creation, and AI-assisted coding |
@@ -131,7 +132,7 @@ You can also invoke skills directly:
 `icp-persona` `customer-segments` `case-study-builder`
 
 ### Growth & Experimentation
-`experimentation` `marketing-product-ideas` `performance-marketing` `lifecycle-marketing-campaigns`
+`experimentation` `marketing-product-ideas` `performance-marketing` `lifecycle-marketing-campaigns` `product-onboarding-activation`
 
 ### Automation & Technical
 `n8n-automation` `openclaw` `clay-gtm-outbound` `vibe-coding`
