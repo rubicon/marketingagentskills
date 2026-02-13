@@ -18,6 +18,10 @@ I am currently experimenting with vibe coding, and this is one of the projects I
 
 Skills are markdown files that give AI agents specialized knowledge to execute specific marketing tasks. Each skill contains frameworks, best practices, and structured approaches that help Claude produce better, more consistent outputs for marketing work.
 
+<a href="https://youtu.be/jUd-FlWWeOA">
+  <img src="https://img.youtube.com/vi/jUd-FlWWeOA/maxresdefault.jpg" alt="Watch the demo" width="600">
+</a>
+
 ---
 
 ## Available Skills
