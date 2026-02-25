@@ -1,6 +1,6 @@
 # Marketing Agent Skills
 
-23 AI agent skills for marketing tasks, built for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) and similar AI coding assistants (Cursor, Windsurf, Codex, Cline, Roo Code).
+24 AI agent skills for marketing tasks, built for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) and similar AI coding assistants (Cursor, Windsurf, Codex, Cline, Roo Code).
 
 ---
 
@@ -30,6 +30,7 @@ See demo:
 
 | Skill | Description |
 |-------|-------------|
+| [ad-creative](skills/ad-creative) | Generate, iterate, and scale ad creative (headlines, descriptions, primary text, full ad variations) for any paid advertising platform |
 | [agent-skill-builder](skills/agent-skill-builder) | Create new Claude skills from scratch or translate ChatGPT projects into the Claude skill format |
 | [ai-humanizer](skills/ai-humanizer) | Detect AI-written text, provide line-by-line recommendations, and rewrite content to sound genuinely human |
 | [case-study-builder](skills/case-study-builder) | Create professional case studies, engagement summaries, and project summaries |
@@ -133,7 +134,7 @@ You can also invoke skills directly:
 `product-positioning` `product-messaging` `product-launch-gtm` `marketing-advantages`
 
 ### Content & Copy
-`landing-page` `saas-landing-pages` `press-release` `copy-anatomy` `ai-humanizer`
+`ad-creative` `landing-page` `saas-landing-pages` `press-release` `copy-anatomy` `ai-humanizer`
 
 ### Research & Segmentation
 `icp-persona` `customer-segments` `case-study-builder`
