@@ -1,8 +1,7 @@
 ---
 name: performance-marketing
-version: 1.0.0
+version: "1.1.0"
 description: Plans, reviews, and optimizes paid advertising campaigns across Google, Meta, LinkedIn, TikTok, YouTube, Reddit, X, and Snapchat. Use when the user mentions "paid ads," "performance marketing," "ad campaign," "creative strategy," "ad copy," "media buying," "ROAS," "CPA," "campaign audit," or platform-specific ad help.
-version: "1.0.0"
 argument-hint: "[platform] [task]"
 ---
 
@@ -94,7 +93,17 @@ Apply platform-specific guidance from reference files:
 - X (Twitter): Opinion + real-time
 - Snapchat: Impulse + visuals
 
-### Step 5: Operational Execution
+### Step 5: Campaign Structure
+
+Set up campaign structure following platform-specific hierarchy:
+- Meta: Campaign → Ad Set → Ads (CBO vs ABO, 1-3 ad sets during testing)
+- LinkedIn: Campaign Group → Campaign → Ads
+- Google Search: Account → Campaign → Ad Group → Ads
+- Universal: Structure must support learning velocity, not just organization
+
+Apply structural rules from the reference playbook.
+
+### Step 6: Operational Execution
 
 Apply testing, kill rules, scale rules, and refresh cadence from the operational playbook.
 
@@ -115,6 +124,9 @@ When creating campaign plans or reviewing ads:
 ## Platform Execution
 [Platform-specific guidance]
 
+## Campaign Structure
+[Platform hierarchy, ad set/ad group setup, budget allocation]
+
 ## Tracking & Signals
 [What to track and why]
 
@@ -125,7 +137,7 @@ When creating campaign plans or reviewing ads:
 ## Reference Files
 
 For detailed guidance, consult:
-- [Complete Playbook](references/performance-marketing-playbook.md) - Full platform playbooks, creative types, and operational frameworks
+- [Complete Playbook](references/performance-marketing-playbook.md) - Full platform playbooks, campaign structure, creative types, tracking, and operational frameworks
 - [Operating Checklist](references/operating-checklist.md) - Pre-launch and review checklist
 
 ## Constraints
