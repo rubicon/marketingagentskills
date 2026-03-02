@@ -1,20 +1,20 @@
 ---
 name: skill-to-prompt
-description: Converts Claude skills into ChatGPT Project format (prompt instructions + knowledge files as .docx). Use when user mentions "convert to ChatGPT," "ChatGPT project," "export skill," "GPT instructions," "skill to prompt," or "skill to GPT."
-version: "1.0.0"
+description: Converts Claude skills into ChatGPT Project format (prompt instructions + 1 knowledge file as .docx). Use when user mentions "convert to ChatGPT," "ChatGPT project," "export skill," "GPT instructions," "skill to prompt," or "skill to GPT."
+version: "1.1.0"
 argument-hint: "[skill-name or path]"
 ---
 
 # Skill to Prompt Converter
 
-Converts a Claude skill (SKILL.md + references/) into ChatGPT Project format: one prompt instruction document (.docx, under 8,000 characters) and 1-3 knowledge file documents (.docx).
+Converts a Claude skill (SKILL.md + references/) into ChatGPT Project format: one prompt instruction document (.docx, under 8,000 characters) and one knowledge file document (.docx).
 
 ## What This Produces
 
 For each conversion:
 
 1. **Prompt Instructions** (.docx) — The text that gets pasted into ChatGPT's "Instructions" field. Under 8,000 characters. Structured using the 9-component prompt formula.
-2. **Knowledge Files** (1-3 .docx files) — Uploaded to the ChatGPT Project as reference material. Contains detailed workflows, templates, frameworks, and examples.
+2. **Knowledge File** (1 .docx file) — Uploaded to the ChatGPT Project as reference material. Contains all detailed workflows, templates, frameworks, examples, and reference content consolidated into a single document.
 
 All .docx files follow standard formatting: Arial font, 10pt normal text, H1=20pt, H2=16pt, H3=14pt, H4=12pt, 1.15 line spacing.
 
@@ -36,13 +36,15 @@ Read everything:
 
 ### Step 2: Analyze Skill Complexity
 
-Count total source content and classify:
+Count total source content to understand how much compression is needed for the single knowledge file:
 
-| Complexity | Criteria | Knowledge Files |
+| Complexity | Criteria | Compression Needed |
 |---|---|---|
-| Simple | <300 lines in SKILL.md, no reference files | 1 |
-| Medium | 300-500 lines or 1-2 reference files | 1-2 |
-| Complex | 500+ lines or 3+ reference files | 2-3 |
+| Simple | <300 lines in SKILL.md, no reference files | Minimal — content fits easily in one knowledge file |
+| Medium | 300-500 lines or 1-2 reference files | Moderate — condense verbose sections, keep all frameworks and examples |
+| Complex | 500+ lines or 3+ reference files | Heavy — prioritize frameworks, worked examples, and actionable content. Summarize repetitive sections |
+
+**Regardless of complexity, always produce exactly 1 knowledge file.**
 
 ### Step 3: Map Content to the 9-Component Prompt Formula
 
@@ -95,6 +97,8 @@ Apply the priority system to stay under 8,000 characters:
 
 Draft the instruction text following this structure:
 
+Every prompt instruction document must include all 9 headings below, in this exact order. No headings may be omitted or renamed.
+
 ```
 ## Role
 
@@ -117,11 +121,15 @@ Follow this workflow:
 
 ## Audience
 
-[Target audience if specified in the skill; otherwise omit this section]
+[Target audience. If the skill does not specify an audience, write: "General users seeking [skill domain] assistance. Adjust complexity based on the user's apparent experience level."]
 
-## Style and Tone
+## Style/Tone
 
-[Voice/tone rules extracted from the skill, or omit if not specified]
+[Voice/tone rules extracted from the skill. If the skill does not specify tone, write: "Professional and clear. Match the register of the target audience. Avoid jargon unless the audience expects it."]
+
+Always include these writing rules regardless of skill-specific tone:
+- Avoid dashes unless absolutely necessary. Prefer commas, periods, or conjunctions to keep the tone natural.
+- Use en dashes (with spaces, e.g. word – word) or em dashes (without spaces, e.g. word—word) only when unavoidable, ideally no more than once per complete piece of output.
 
 ## Constraints
 
@@ -130,76 +138,58 @@ Follow this workflow:
 - [Format restrictions]
 - [Quality standards]
 
-## Inputs
+## Inputs/Placeholders
 
 Before starting, ask the user for:
 1. [Required input from the skill's context-gathering steps]
 2. [Required input]
 
-## Example
+## Example Output
 
 [1-2 short examples showing expected output structure. Keep brief.]
 
-## Output Format
+## Formatting Instructions
 
 [Output structure and formatting rules from the skill]
+```
 
+After the 9 required sections, always append a Knowledge Files section:
+
+```
 ## Knowledge Files
 
-This project includes [X] knowledge file(s). Consult them as needed:
+This project includes 1 knowledge file. Consult it as needed:
 
-1. **[Filename]** — [What it contains and when to reference it]
-2. **[Filename]** — [What it contains]
+1. **[SkillName]_Reference_Guide.docx** — [What it contains and when to reference it]
 ```
 
 After drafting, count characters. If over 7,500:
-- Cut examples to bare minimum
+- Cut examples to bare minimum (but keep the Example Output heading with at least a brief example)
 - Compress workflow steps further
-- Move style/tone to knowledge file
-- Remove audience section if generic
+- Shorten Audience and Style/Tone content (but never remove the headings)
 
-If over 8,000 after compression: force-move more content to knowledge files until under the limit.
+If over 8,000 after compression: shorten section content further, but all 9 headings must remain. Move detailed explanations to the knowledge file and replace with concise summaries under each heading.
 
 ### Step 6: Organize Knowledge File Content
 
-Based on complexity classification from Step 2:
+Always produce exactly **1 knowledge file** named `[SkillName]_Reference_Guide.docx`.
 
-**Simple skills (1 knowledge file):**
+Consolidate all P3 content into this single document, organized with clear heading hierarchy:
 
 `[SkillName]_Reference_Guide.docx` containing:
-- Full workflow with complete explanations
-- All examples
-- Templates and frameworks
-- Guidelines and best practices
+- Full detailed workflow with complete explanations
+- All examples and worked examples
+- Templates and frameworks (from SKILL.md body and references/ folder)
+- All reference material (from references/ folder)
+- Guidelines, best practices, and edge cases
+- Decision trees and detailed tables
+- Script documentation (from scripts/ folder, noted as non-executable reference)
 
-**Medium skills (1-2 knowledge files):**
-
-File 1: `[SkillName]_Reference_Guide.docx`
-- Detailed workflow steps
-- Full example library
-- Guidelines
-
-File 2 (if reference files exist): `[SkillName]_Templates.docx`
-- Content from references/ folder files
-- Templates and frameworks
-- Specialized reference material
-
-**Complex skills (2-3 knowledge files):**
-
-File 1: `[SkillName]_Core_Workflows.docx`
-- Complete step-by-step workflows
-- Decision trees
-- Full example library
-
-File 2: `[SkillName]_Templates.docx`
-- All templates from SKILL.md and references/
-- Framework explanations
-- Application guides
-
-File 3 (if needed): `[SkillName]_Reference_Material.docx`
-- Additional reference content from references/ folder
-- Advanced topics
-- Edge cases and specialized guidance
+**Organization within the single file:**
+- Use H1 for major sections (Workflows, Templates, Examples, Reference Material)
+- Use H2-H3 for subsections within each major section
+- Use page breaks between major sections for readability
+- For complex skills with heavy reference content, prioritize frameworks, worked examples, and actionable content over verbose explanations
 
 ### Step 7: Generate JSON Data
 
@@ -212,7 +202,7 @@ The JSON structure:
   "skillName": "Skill Display Name",
   "originalSkillName": "skill-name",
   "version": "1.0.0",
-  "outputDir": "./",
+  "outputDir": "~/Downloads/",
   "instructionDoc": {
     "filename": "SkillName_Prompt_Instructions.docx",
     "title": "Skill Name — ChatGPT Project Instructions",
@@ -249,7 +239,7 @@ Run the generator:
 NODE_PATH=~/Documents/node_modules node ~/.claude/skills/skill-to-prompt/references/docx-generator.js [skill-name]-conversion.json
 ```
 
-This produces all .docx files in the current working directory.
+This produces all .docx files in the `~/Downloads/` folder.
 
 **If the docx package is not available**, install it first:
 
@@ -273,17 +263,18 @@ Present to the user:
 ```
 Conversion complete: [skill-name] → ChatGPT Project
 
+Output saved to ~/Downloads/
+
 Prompt Instructions:
   [SkillName]_Prompt_Instructions.docx (X,XXX characters)
 
-Knowledge Files:
-  1. [SkillName]_Reference_Guide.docx — [brief description]
-  2. [SkillName]_Templates.docx — [brief description] (if applicable)
+Knowledge File:
+  [SkillName]_Reference_Guide.docx — [brief description]
 
 Setup in ChatGPT:
   1. Create a new Project in ChatGPT
   2. Paste the instruction text from the Instructions .docx into the project's Instructions field
-  3. Upload the knowledge file(s) to the project
+  3. Upload the knowledge file to the project
   4. Test with a sample prompt
 ```
 
@@ -325,8 +316,6 @@ rm [skill-name]-conversion.json
 ```
 [SkillName]_Prompt_Instructions.docx
 [SkillName]_Reference_Guide.docx
-[SkillName]_Templates.docx
-[SkillName]_Reference_Material.docx
 ```
 
 Where `[SkillName]` is the skill name in Title Case with spaces replaced by underscores.
@@ -345,6 +334,7 @@ All .docx output follows these standards:
 | Element | Setting |
 |---------|---------|
 | Font | Arial |
+| Font color | Black (default) for all text and headings |
 | Normal text | 10pt |
 | Heading 1 | 20pt |
 | Heading 2 | 16pt |
@@ -354,8 +344,10 @@ All .docx output follows these standards:
 
 Additional rules:
 - Headings are styled by size only. No extra bold on headings.
+- All text and headings must be default black. No additional colors on any text or headings.
 - Add space after each paragraph.
 - Tables use alternating row shading for readability.
+- When generating .docx, explicitly set Arial font, heading sizes, black color (no theme colors), and 1.15 line spacing on every element. Never rely on Word default styles.
 
 ---
 
