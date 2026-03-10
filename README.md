@@ -10,6 +10,8 @@ This repo is the Claude skills version of the [MIA Resources](https://marketingi
 
 These skills make it easier to unify and apply the knowledge and prompts from the knowledge files and custom GPTs/prompts.
 
+**New to Claude Code?** Read the [Claude Code for Marketers](https://marketinginaction.xyz/resources/claude-code-for-marketers/) guide. It walks you through setting up Claude Code, understanding key concepts, and installing these skills step by step. No coding experience needed.
+
 I am currently experimenting with vibe coding, and this is one of the projects I'm building with that knowledge. You can also check out the vibe-coded repo of the MIA website here: [github.com/realjaymes/marketinginaction](https://github.com/realjaymes/marketinginaction)
 
 ---
@@ -62,14 +64,24 @@ See demo:
 
 ### For Claude Code Users
 
-**Option 1: Download and Copy (Easiest)**
+**Option 1: Ask Claude Code to Install (Simplest)**
+
+If you already have Claude Code running, just paste this prompt:
+
+```
+Clone the marketing skills repo from https://github.com/realjaymes/marketingagentskills and copy all the skills from the skills/ folder into ~/.claude/skills/ so I can use them.
+```
+
+Claude will run the commands for you. Approve each step when prompted.
+
+**Option 2: Download and Copy**
 
 1. Click the green **Code** button above, then **Download ZIP**
 2. Unzip the downloaded file
 3. Open Finder and press `Cmd + Shift + G`, then paste: `~/.claude/skills/`
 4. Copy the folders from the `skills` folder in the unzipped download into this location
 
-**Option 2: Using Terminal**
+**Option 3: Using Terminal**
 
 Open Terminal (search "Terminal" in Spotlight) and paste these two lines:
 
