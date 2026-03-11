@@ -1,6 +1,6 @@
 # Remotion Video Creation Process
 
-A structured process for creating programmatic videos with Remotion. Follow these steps sequentially. Steps 1-4 require approval before implementation begins.
+A structured process for creating programmatic videos with Remotion. Follow these steps sequentially. Step 2 generates 5 video brief variants. Steps 4 and 5 require approval before implementation begins.
 
 ---
 
@@ -13,10 +13,12 @@ Gather and lock the following before any creative work begins.
 | **Purpose** | Why does this video exist? What problem does it solve? | "Explain the Agentic Loop Framework for prospects who land on the homepage" |
 | **Audience** | Who is watching? What do they already know? | "B2B marketing leaders evaluating growth partners" |
 | **Core message** | One sentence. If the viewer remembers one thing, what is it? | "GrowthNode runs a continuous insight-hypothesis-action loop that compounds over time" |
+| **Content type** | What kind of asset is this video promoting? | blog-post, case-study, tool-launch, webinar, etc. |
 | **Distribution channels** | Where will this video live? List all intended placements | Website embed, LinkedIn post, sales deck |
 | **CTA** | What should the viewer do after watching? | Visit growthnode.ai |
 | **Source assets** | Existing brand components, website sections, design files to reference | `LoopFramework.astro`, brand color palette |
 | **Tone** | Technical, conversational, bold, minimal, playful? | "Minimal, confident, technical but accessible" |
+| **Brand** | Which brand's theme to use (or custom) | FunnelEnvy, Reform, GrowthNode, custom |
 
 ### Brief Template
 
@@ -24,17 +26,167 @@ Gather and lock the following before any creative work begins.
 Purpose: [Why this video exists]
 Audience: [Who is watching]
 Core message: [One sentence]
+Content type: [blog-post, case-study, webinar, podcast, lead-magnet, product-update, tool-launch, industry-report, event-recap, client-testimonial, playbook, template, ai-demo, custom-gpt]
 Channels: [Where it will be distributed]
 CTA: [What the viewer should do next]
 Source assets: [Files, components, or URLs to reference]
 Tone: [Descriptive words for the feel]
+Brand: [FunnelEnvy, Reform, GrowthNode, or custom]
 ```
 
 ---
 
-## Step 2: Format and Specs
+## Step 2: Generate 5 Video Brief Variants
 
-Specs are derived from the brief, not chosen arbitrarily. Use the decision matrix below.
+After locking the creative brief, generate all 5 variants as one-page briefs. Present them to the user for selection before proceeding to specs.
+
+### Variant A: Problem → Solution Story
+
+A narrative arc that names the audience's pain, then reveals the solution. Motion graphics with text animation.
+
+**Scene-by-scene template:**
+
+| # | Time | Visual | Overlay Text | Transition |
+|---|------|--------|-------------|------------|
+| 1 | 0-4s | Bold text on brand background, subtle pulse/shake animation | Problem statement (1-2 lines) | Fade in |
+| 2 | 4-8s | Pain amplification — icons, red/warning accents, visual tension | Why the problem persists (1 line) | Cut or slide |
+| 3 | 8-14s | Transition to solution — brand accent color takes over, clean layout | Solution introduction + key benefit | Color wipe |
+| 4 | 14-18s | Feature/capability highlight with supporting visual | Second benefit or proof point | Slide |
+| 5 | Last 3s | Brand card | Logo + tagline + URL + CTA | Fade |
+
+**Best for**: Blog posts, playbooks, lead magnets, product updates, tool launches.
+
+**Animation style**: Spring (smooth) for entrances, ease-out for exits. Problem scenes use slightly faster timing to create tension. Solution scenes use slower, more confident pacing.
+
+### Variant B: Asset Demo (Conditional)
+
+The visual approach depends on the content type.
+
+#### B1: Animated Terminal Demo (CLI tools, terminal-based tools, GitHub repos with CLI)
+
+| # | Time | Visual | Overlay Text | Transition |
+|---|------|--------|-------------|------------|
+| 1 | 0-3s | Dark terminal background (`#1a1a2e` or brand terminal bg), cursor blink | Hook: what the tool does (one line) | Fade in |
+| 2 | 3-7s | Command typed character by character with cursor | The command being run | Typewriter |
+| 3 | 7-12s | Output renders line by line with syntax highlighting, callout annotation on key output | Key output with annotation | Line-by-line reveal |
+| 4 | 12-16s | Second command or output section, new callout annotation | Second capability or result | Cut |
+| 5 | Last 3s | Brand card (matches terminal theme) | Logo + tagline + URL | Fade |
+
+**Animation style**: Typewriter for commands (40-60 chars/sec). Line-by-line reveal for output (150ms per line). Spring (snappy) for callout annotations.
+
+#### B2: Content Preview Scroll-Through (everything else)
+
+| # | Time | Visual | Overlay Text | Transition |
+|---|------|--------|-------------|------------|
+| 1 | 0-3s | Title card / asset cover with brand background | Hook from editorial angle | Fade in |
+| 2 | 3-8s | Simulated scroll through the asset. Callout annotation (box/arrow in brand accent color) highlights a key section | Plain-language benefit | Pan / scroll |
+| 3 | 8-13s | Zoom into a specific chart, result, framework, or quote. Callout annotation on focal point | Second benefit or proof point | Scroll / zoom |
+| 4 | 13-18s | Additional section preview. Callout annotation on a different high-value element | Third key takeaway | Scroll / zoom |
+| 5 | Last 3s | Brand card | Logo + tagline + URL | Fade |
+
+**Visual mapping by content type:**
+
+| Asset Type | What the Scroll Shows | Callout Focus |
+|---|---|---|
+| Blog post | Article scrolling with highlighted paragraphs | Pull quotes, key data points, frameworks |
+| Case study | Results page, before/after metrics | The headline metric, client quote |
+| Webinar | Slide deck highlights, speaker screen | Key insight slide, data visualization |
+| Podcast | Episode art, guest photo, quote cards | Key quote, episode topic card |
+| Lead magnet / playbook | Table of contents, featured pages | Framework diagrams, actionable sections |
+| Product update | UI screenshots showing the new feature | Before/after UI, new capability |
+| Industry report | Key charts, data tables, findings | Headline stat, trend visualization |
+| Template | Filled-in example showing the template in use | Key formulas, sample data, output section |
+| Custom GPT | Prompt/response exchange in chat UI | The most impressive response |
+| Event recap | Photos, speaker moments, key slides | Highlight moment |
+| Client testimonial | Quote card design, results metrics | Client quote, key result number |
+
+**Animation style**: Smooth vertical scroll (linear interpolation). Callout annotations use spring (bouncy) entrance. Zoom uses ease-in-out.
+
+### Variant C: Stats/Impact Kinetic Typography
+
+Pure motion graphics. Animated numbers, bold typography, no UI or screenshots. Each scene is one stat or impact statement.
+
+| # | Time | Visual | Overlay Text | Transition |
+|---|------|--------|-------------|------------|
+| 1 | 0-4s | Large animated number counting up (e.g., 147%) on brand background | Metric label below the number | Scale up + fade |
+| 2 | 4-8s | Second stat with different animation (scale, slide, typewriter) | Context line | Slide from right |
+| 3 | 8-12s | Third stat or key quote in large type | Attribution or source | Fade + scale |
+| 4 | 12-16s | Summary statement, all key numbers visible simultaneously | Synthesis line | Staggered fade-in |
+| 5 | Last 3s | Brand card | Logo + tagline + URL | Fade |
+
+**Best for**: Case studies, industry reports, event recaps, client testimonials, any asset with strong numbers.
+
+**Animation style**: Mixed — each stat uses a different entrance animation for variety. Number counting uses linear interpolation. Text uses spring (snappy).
+
+### Variant D: Before/After Split Screen
+
+Side-by-side or sequential comparison showing transformation. The screen splits to contrast the "before" state with the "after" state.
+
+| # | Time | Visual | Overlay Text | Transition |
+|---|------|--------|-------------|------------|
+| 1 | 0-3s | Full-screen "Before" label with problem visual (cluttered dashboard, manual process, old workflow) | "Before [Product/Asset]" | Fade in |
+| 2 | 3-7s | Before state details — pain points highlighted with red/warning accents, icons for friction | 1-2 specific problems (e.g., "Manual reporting. 4 hours/week.") | Slide in elements |
+| 3 | 7-8s | Split-screen wipe transition — brand accent color divider slides across | (transition moment) | Horizontal wipe |
+| 4 | 8-13s | "After" state — clean, optimized, brand-colored visuals | Key result (e.g., "Automated. 12 minutes.") | Wipe reveal |
+| 5 | 13-17s | After state details — metrics, improvements, green/success accents | 1-2 proof points | Slide in elements |
+| 6 | Last 3s | Brand card | Logo + tagline + URL | Fade |
+
+**Best for**: Case studies, product updates, client testimonials, tool launches, playbooks, any asset with a clear transformation narrative.
+
+**Animation style**: Before scenes use slightly desaturated colors and heavier weight. After scenes use brand accent colors and lighter, more confident animation. The wipe transition should be satisfying and decisive (300-500ms).
+
+**Layout options:**
+- **Horizontal split**: Before on left, After on right (works best at 1080x1080 and 1920x1080)
+- **Vertical split**: Before on top, After on bottom (works best at 1080x1920)
+- **Sequential**: Full-screen Before → wipe → full-screen After (works at all dimensions)
+
+### Variant E: Social Proof Montage
+
+Cycles through testimonials, client quotes, logos, and metrics in a rhythm-driven sequence.
+
+| # | Time | Visual | Overlay Text | Transition |
+|---|------|--------|-------------|------------|
+| 1 | 0-3s | Hook stat or headline claim on brand background | Bold claim (e.g., "Trusted by 200+ B2B SaaS teams") | Fade in |
+| 2 | 3-7s | First testimonial card — quote + name + company logo | Client quote (1-2 lines) | Slide in from right |
+| 3 | 7-11s | Second testimonial card with different animation | Second client quote | Scale up + fade |
+| 4 | 11-15s | Metrics bar — animated counters showing 2-3 aggregate results | Key numbers (e.g., "147% avg MQL increase") | Counter animation |
+| 5 | 15-17s | Logo wall — 6-12 client/partner logos fade in on grid | "Join [X]+ companies" | Staggered grid fade |
+| 6 | Last 3s | Brand card | Logo + tagline + URL + CTA | Fade |
+
+**Best for**: Client testimonials, case studies, event recaps, industry reports, any asset that benefits from third-party credibility.
+
+**Animation style**: Each testimonial card uses a different entrance for visual variety. Metric counters use linear interpolation for the counting effect. Logo grid uses staggered spring (smooth) entrances.
+
+### Variant Selection Guide
+
+| Content Type | Recommended Variants (in order of fit) |
+|---|---|
+| Blog post | A, C, D |
+| Case study | C, D, E |
+| Webinar / Podcast | A, B2 (scroll-through), C |
+| Lead magnet / Playbook / Guide | A, B2 (scroll-through), D |
+| Product update | A, D, C |
+| Tool launch (CLI) | B1 (terminal), A, C |
+| Tool launch (non-CLI) | B2 (scroll-through), A, D |
+| Industry report | C, A, B2 (scroll-through) |
+| Event recap | C, E, A |
+| Client testimonial | E, C, D |
+| Template | B2 (scroll-through), A, D |
+| AI demo / Custom GPT | B1 or B2, A, C |
+
+### Presenting Variants
+
+When presenting variants to the user:
+1. Generate all 5 as one-paragraph summaries with the scene-by-scene table
+2. Highlight the recommended variant(s) based on the content type
+3. The user selects one variant or requests a hybrid of two
+4. Lock the selected variant before proceeding to Step 3
+
+---
+
+## Step 3: Format and Specs
+
+Specs are derived from the brief and selected variant. Use the decision matrix below.
 
 ### Format Decision Matrix
 
@@ -75,9 +227,9 @@ Adaptations may require layout adjustments, not just cropping. Flag these during
 
 ---
 
-## Step 3: Scene Breakdown
+## Step 4: Scene Breakdown
 
-This is the most critical step. Every scene must be defined before code is written. Changes to scenes after implementation are expensive.
+This is the most critical step. Every scene must be defined before code is written. Changes to scenes after implementation are expensive. Use the selected variant's scene template as the starting structure, then customize.
 
 ### Narrative Arc
 
@@ -136,7 +288,7 @@ Present the complete scene table to the user for approval. Lock copy, timing, an
 
 ---
 
-## Step 4: Visual Design
+## Step 5: Visual Design
 
 ### Color Palette
 
@@ -186,7 +338,7 @@ Last verified: [date]
 
 ---
 
-## Step 5: Architecture Decision
+## Step 6: Architecture Decision
 
 This step is deterministic based on scene complexity. The agent resolves this, not the user.
 
@@ -232,7 +384,7 @@ Register in `Root.tsx` with proper folder organization:
 
 ---
 
-## Step 6: Implementation
+## Step 7: Implementation
 
 With scenes, design, and architecture locked, write the code.
 
@@ -261,7 +413,7 @@ With scenes, design, and architecture locked, write the code.
 
 ---
 
-## Step 7: Output Documentation
+## Step 8: Output Documentation
 
 Generate an output document for every completed video. This serves as the reference for future edits, adaptations, and handoffs.
 
@@ -324,13 +476,14 @@ Generate an output document for every completed video. This serves as the refere
 ## Process Summary
 
 ```
-Step 1: Creative Brief         → Lock purpose, audience, message, channels, CTA
-Step 2: Format and Specs       → Resolve dimensions, duration, fps from brief
-Step 3: Scene Breakdown        → Define every scene with copy, timing, animation  ← APPROVAL GATE
-Step 4: Visual Design          → Lock colors, typography, animation style         ← APPROVAL GATE
-Step 5: Architecture Decision  → Agent resolves file structure and timing system
-Step 6: Implementation         → Write code against locked decisions
-Step 7: Output Documentation   → Generate reference doc for the completed video
+Step 1: Creative Brief            → Lock purpose, audience, message, content type, channels, CTA, brand
+Step 2: Generate 5 Variants       → Present A/B/C/D/E video brief variants for selection
+Step 3: Format and Specs          → Resolve dimensions, duration, fps from brief + selected variant
+Step 4: Scene Breakdown           → Define every scene with copy, timing, animation  ← APPROVAL GATE
+Step 5: Visual Design             → Lock colors, typography, animation style         ← APPROVAL GATE
+Step 6: Architecture Decision     → Agent resolves file structure and timing system
+Step 7: Implementation            → Write code against locked decisions
+Step 8: Output Documentation      → Generate reference doc for the completed video
 ```
 
-Steps 3 and 4 are approval gates. Everything before them is input gathering. Everything after them is execution.
+Steps 4 and 5 are approval gates. Everything before them is input gathering and variant selection. Everything after them is execution.
