@@ -4,6 +4,16 @@ A structured process for creating programmatic videos with Remotion. Follow thes
 
 ---
 
+## Step 0: Brand Identification
+
+Before any creative work, identify the brand. Ask the user: **"What brand is this video for?"**
+
+**If the brand has a preset** (see Step 5), use it directly. No further brand questions needed.
+
+**If the brand is not listed**, ask the user to provide a brand website URL or brand guidelines document. Extract from the website/guidelines: background color, primary accent, secondary accent, text colors, font family, and theme (light/dark). If no guidelines exist, ask for at minimum: primary color, background color, and font preference.
+
+---
+
 ## Step 1: Creative Brief
 
 Gather and lock the following before any creative work begins.
@@ -18,7 +28,7 @@ Gather and lock the following before any creative work begins.
 | **CTA** | What should the viewer do after watching? | Visit growthnode.ai |
 | **Source assets** | Existing brand components, website sections, design files to reference | `LoopFramework.astro`, brand color palette |
 | **Tone** | Technical, conversational, bold, minimal, playful? | "Minimal, confident, technical but accessible" |
-| **Brand** | Which brand's theme to use (or custom) | FunnelEnvy, Reform, GrowthNode, custom |
+| **Brand** | Brand identified in Step 0 | FunnelEnvy, Reform, GrowthNode, MIA, or custom |
 
 ### Brief Template
 
@@ -31,7 +41,7 @@ Channels: [Where it will be distributed]
 CTA: [What the viewer should do next]
 Source assets: [Files, components, or URLs to reference]
 Tone: [Descriptive words for the feel]
-Brand: [FunnelEnvy, Reform, GrowthNode, or custom]
+Brand: [Brand name from Step 0]
 ```
 
 ---
@@ -157,6 +167,37 @@ Cycles through testimonials, client quotes, logos, and metrics in a rhythm-drive
 
 **Animation style**: Each testimonial card uses a different entrance for visual variety. Metric counters use linear interpolation for the counting effect. Logo grid uses staggered spring (smooth) entrances.
 
+### Variant F: Framework/Process Visualization
+
+Progressive build of a conceptual framework or process diagram. Each scene adds a node/step to the visual, building the full picture before the viewer's eyes. Use cases ground the abstract framework in concrete applications.
+
+| # | Time | Visual | Overlay Text | Transition |
+|---|------|--------|-------------|------------|
+| 1 | 0-3.5s | Bold text on brand background, staggered line reveals | Hook: name the tension (e.g., "You have the data. You have the tools. You're missing the loop.") | Staggered fade + Y-translate |
+| 2 | 3.5-6s | Logo/wordmark spring entrance, optional logomark | Brand identification + tagline | Spring scale |
+| 3 | 6-8s | Tagline (uppercase, small, accent color) + headline (large) | Framework title (e.g., "The Agentic Loop Framework") | Fade + spring |
+| 4 | 8-10s | First node springs in with icon. Connector path starts drawing. Description text swaps. | Node 1 name + description | Blur-to-sharp + spring |
+| 5 | 10-13s | Second node springs in from incoming path direction. Path draws to next node. | Node 2 name + description | Directional slide + blur |
+| 6 | 13-16s | Third node springs in. Path draws. If loop structure, path draws back to first node. | Node 3 name + description | Directional slide + blur |
+| 7 | 16-19s | Optional additional nodes. Loop closes with path flash. Center label appears. Pulse dot begins traveling. | "Execute, measure, repeat" or similar | Path flash + pulse start |
+| 8 | 19-22s | All nodes visible. Pulse accelerates (4s → 2s cycle). Node glows intensify. Background breathes. | Compounding message (e.g., "Results feed back. The loop compounds.") | Acceleration + glow |
+| 9 | 22-28s | Framework dims to ~10% opacity. Use cases cycle: each fades in, holds ~1.5s, fades out. Optional colored pill/badge per use case. | 3-5 concrete applications (e.g., "Paid Media / Reallocate budget from performance signals") | Crossfade with slight horizontal slide |
+| 10 | Last 2-3s | Brand card | URL + closing tagline + CTA | Spring + optional flourish |
+
+**Best for**: Proprietary frameworks, methodologies, process explanations, "how it works" content, strategy documents, approach overviews.
+
+**Animation style**: Spring entrances for nodes, SVG `stroke-dashoffset` path drawing for connectors, pulse/comet animation for loops. V2-level polish: blur-to-sharp materializations (`filter: blur` → clear), glow trails on paths (SVG `feGaussianBlur` filter), comet tail pulse (3-dot trail with trailing opacity), accent-bar descriptions, use case pills with colored badges, dot grid background for depth.
+
+**Key characteristics that distinguish this from other variants:**
+- The visual is built progressively (not revealed all at once)
+- Each scene adds a component to a persistent diagram that stays visible across scenes
+- Connector paths draw on with animated dash-offset
+- Use cases ground the abstract framework in real applications
+- Closing restates the framework's name/concept
+- Works for any node-and-edge structure: triangles, loops, funnels, linear flows, concentric rings
+
+**Reference implementations:** `GrowthNodeAgenticLoop.tsx` (V1) and `GrowthNodeAgenticLoopV2.tsx` (V2) in the remotion-videos project.
+
 ### Variant Selection Guide
 
 | Content Type | Recommended Variants (in order of fit) |
@@ -164,7 +205,7 @@ Cycles through testimonials, client quotes, logos, and metrics in a rhythm-drive
 | Blog post | A, C, D |
 | Case study | C, D, E |
 | Webinar / Podcast | A, B2 (scroll-through), C |
-| Lead magnet / Playbook / Guide | A, B2 (scroll-through), D |
+| Lead magnet / Playbook / Guide | A, B2 (scroll-through), D, F |
 | Product update | A, D, C |
 | Tool launch (CLI) | B1 (terminal), A, C |
 | Tool launch (non-CLI) | B2 (scroll-through), A, D |
@@ -173,11 +214,14 @@ Cycles through testimonials, client quotes, logos, and metrics in a rhythm-drive
 | Client testimonial | E, C, D |
 | Template | B2 (scroll-through), A, D |
 | AI demo / Custom GPT | B1 or B2, A, C |
+| Framework / Methodology | F, A, C |
+| Strategy document | F, A, C |
+| "How it works" content | F, A, D |
 
 ### Presenting Variants
 
 When presenting variants to the user:
-1. Generate all 5 as one-paragraph summaries with the scene-by-scene table
+1. Generate all 6 as one-paragraph summaries with the scene-by-scene table
 2. Highlight the recommended variant(s) based on the content type
 3. The user selects one variant or requests a hybrid of two
 4. Lock the selected variant before proceeding to Step 3
@@ -289,6 +333,21 @@ Present the complete scene table to the user for approval. Lock copy, timing, an
 ---
 
 ## Step 5: Visual Design
+
+### Brand Theme Presets
+
+Use these for known brands. Skip color questions if the brand matches a preset.
+
+| Brand | Background | Primary Accent | Secondary Accent | Text Primary | Text Muted | Font | Theme |
+|-------|-----------|---------------|-----------------|-------------|-----------|------|-------|
+| FunnelEnvy | `#FFFFFF` / `#1a1a2e` (terminal) | `#3B82F6` (Blue) | `#8B5CF6` (Purple) | `#000000` | `#6B7280` | Inter, system | Light |
+| Reform | `#FFFFFF` / `#1a1a2e` (terminal) | `#48EC80` (Green) | `#EDE630` (Yellow) | `#000000` | `#6B7280` | Inter, system | Light |
+| GrowthNode | `#0f0a1a` (all scenes) | `#8B5CF6` (Purple) | `#3B82F6` (Blue) | `#FFFFFF` | `#a1a1aa` | Inter, system | Dark |
+| MIA | `#F7F4FA` / `#1c1422` (dark) | `#F1DE71` (Yellow) | `#7184F1` (Purple) | `#1c1422` / `#f7f4fa` (dark) | `rgba(28,20,34,0.62)` | system-ui, -apple-system, Segoe UI | Light |
+
+**MIA accent palette**: Blue `#71C4F1`, Purple `#7184F1`, Pink `#F171C4`, Green `#71F19E`
+
+**Custom brands**: If the brand is not listed above, extract colors from the brand website or guidelines provided in Step 0. Fill the same roles below.
 
 ### Color Palette
 
@@ -476,8 +535,9 @@ Generate an output document for every completed video. This serves as the refere
 ## Process Summary
 
 ```
+Step 0: Brand Identification      → Identify brand, use preset or extract from website/guidelines
 Step 1: Creative Brief            → Lock purpose, audience, message, content type, channels, CTA, brand
-Step 2: Generate 5 Variants       → Present A/B/C/D/E video brief variants for selection
+Step 2: Generate 6 Variants       → Present A/B/C/D/E/F video brief variants for selection
 Step 3: Format and Specs          → Resolve dimensions, duration, fps from brief + selected variant
 Step 4: Scene Breakdown           → Define every scene with copy, timing, animation  ← APPROVAL GATE
 Step 5: Visual Design             → Lock colors, typography, animation style         ← APPROVAL GATE
@@ -487,3 +547,5 @@ Step 8: Output Documentation      → Generate reference doc for the completed v
 ```
 
 Steps 4 and 5 are approval gates. Everything before them is input gathering and variant selection. Everything after them is execution.
+
+**Content rule**: Every variant must be self-explanatory. A viewer scrolling with zero context should understand the value from the video alone. No scene should depend on external knowledge. Copy must carry the full message independently.

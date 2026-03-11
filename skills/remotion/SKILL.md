@@ -1,7 +1,7 @@
 ---
 name: remotion
-version: 3.0.0
-description: Remotion video creation in React - process workflow, 5 video brief variants, and technical best practices
+version: 3.1.0
+description: Remotion video creation in React - process workflow, 6 video brief variants (A-F), and technical best practices
 metadata:
   tags: remotion, video, react, animation, composition, programmatic-video
 ---
@@ -17,9 +17,17 @@ Use this skill when:
 
 ## Video Creation Process
 
-When creating a new Remotion video, follow this 8-step process. Step 2 generates 5 video brief variants for selection. Steps 4 and 5 are approval gates. Do not write code until both are approved.
+When creating a new Remotion video, follow this 8-step process. Step 2 generates 6 video brief variants (A-F) for selection. Steps 4 and 5 are approval gates. Do not write code until both are approved.
 
 For the full process document with templates and decision matrices, read [references/video-creation-process.md](references/video-creation-process.md).
+
+### Step 0: Brand Identification
+
+Before any creative work, identify the brand. Ask the user: **"What brand is this video for?"**
+
+**If the brand has a preset below**, use it directly. No further brand questions needed.
+
+**If the brand is not listed**, ask the user to provide a brand website URL or brand guidelines. Extract: background color, primary accent, secondary accent, text colors, font family, and theme (light/dark). If no guidelines exist, ask for at minimum: primary color, background color, and font preference.
 
 ### Step 1: Creative Brief
 
@@ -34,12 +42,12 @@ Channels: [Where it will be distributed]
 CTA: [What the viewer should do next]
 Source assets: [Files, components, or URLs to reference]
 Tone: [Descriptive words for the feel]
-Brand: [FunnelEnvy, Reform, GrowthNode, or custom — determines color theme]
+Brand: [Brand name from Step 0]
 ```
 
 ### Step 2: Generate 5 Video Brief Variants
 
-Present all 5 variants as one-page briefs. The user selects one (or a hybrid) before proceeding to specs.
+Present all 6 variants as one-page briefs. The user selects one (or a hybrid) before proceeding to specs.
 
 #### Variant A: Problem → Solution Story
 
@@ -123,6 +131,29 @@ Cycles through testimonials, client quotes, logos, and metrics in a rhythm-drive
 
 **Best for**: Client testimonials, case studies, event recaps, industry reports, any asset that benefits from third-party credibility.
 
+#### Variant F: Framework/Process Visualization
+
+Progressive build of a conceptual framework or process diagram. Each scene adds a node/step to the visual, building the full picture before the viewer's eyes. Use cases ground the abstract framework in concrete applications.
+
+| # | Time | Visual | Overlay Text |
+|---|------|--------|-------------|
+| 1 | 0-3.5s | Bold text on brand background, staggered line reveals | Hook: name the tension (e.g., "You have the data. You have the tools. You're missing the loop.") |
+| 2 | 3.5-6s | Logo/wordmark spring entrance | Brand identification + tagline |
+| 3 | 6-8s | Tagline (uppercase, small) + headline (large) | Framework title (e.g., "The Agentic Loop Framework") |
+| 4-7 | 8-19s | Progressive node build: each node springs in with connector paths drawing between them. Descriptions swap per node. Diagram persists across scenes. | Node name + one-line description per stage |
+| 8 | 19-22s | All nodes visible, loop/flow animation active (pulse dot, accelerating cycle), visual acceleration | Compounding/reinforcement message (e.g., "Results feed back. The loop compounds.") |
+| 9 | 22-28s | Framework dims to background (~10% opacity). Use cases cycle (fade in/hold/fade out, ~1.5s each) | 3-5 concrete applications with category labels |
+| 10 | Last 2-3s | Brand card | URL + closing tagline + CTA |
+
+**Key characteristics:**
+- The visual is built progressively (not revealed all at once)
+- Each scene adds a component to a persistent diagram that stays visible across scenes
+- Connector paths draw on with SVG dash-offset animation
+- Use cases ground the abstract framework in real applications
+- Animation: spring entrances for nodes, SVG path drawing for connectors, pulse/comet for loops, blur-to-sharp materializations for polish
+
+**Best for**: Proprietary frameworks, methodologies, process explanations, "how it works" content, strategy documents, approach overviews.
+
 ### Variant Selection Guide
 
 | Content Type | Recommended Variants (in order) |
@@ -130,7 +161,7 @@ Cycles through testimonials, client quotes, logos, and metrics in a rhythm-drive
 | Blog post | A, C, D |
 | Case study | C, D, E |
 | Webinar / Podcast | A, B (scroll-through), C |
-| Lead magnet / Playbook / Guide | A, B (scroll-through), D |
+| Lead magnet / Playbook / Guide | A, B (scroll-through), D, F |
 | Product update | A, D, C |
 | Tool launch (CLI) | B (terminal), A, C |
 | Tool launch (non-CLI) | B (scroll-through), A, D |
@@ -139,6 +170,9 @@ Cycles through testimonials, client quotes, logos, and metrics in a rhythm-drive
 | Client testimonial | E, C, D |
 | Template | B (scroll-through), A, D |
 | AI demo / Custom GPT | B (terminal or scroll-through), A, C |
+| Framework / Methodology | F, A, C |
+| Strategy document | F, A, C |
+| "How it works" content | F, A, D |
 
 ### Step 3: Format and Specs
 
@@ -195,13 +229,18 @@ Lock before implementation:
 - Text primary, Text secondary, Text tertiary
 - Border/divider
 
-**Brand theme presets** (use when working with Celerius brands):
+**Brand theme presets** (use for known brands, skip color questions):
 
-| Brand | Background | Primary Accent | Text | Theme |
-|-------|-----------|---------------|------|-------|
-| FunnelEnvy | `#FFFFFF` (non-terminal) / `#1a1a2e` (terminal) | `#3B82F6` (Blue) | `#000000` / `#FFFFFF` | Light |
-| Reform | `#FFFFFF` (non-terminal) / `#1a1a2e` (terminal) | `#48EC80` (Green) | `#000000` / `#FFFFFF` | Light |
-| GrowthNode | `#0f0a1a` (all scenes) | `#8B5CF6` (Purple) | `#FFFFFF` | Dark |
+| Brand | Background | Primary Accent | Secondary Accent | Text Primary | Text Muted | Font | Theme |
+|-------|-----------|---------------|-----------------|-------------|-----------|------|-------|
+| FunnelEnvy | `#FFFFFF` / `#1a1a2e` (terminal) | `#3B82F6` (Blue) | `#8B5CF6` (Purple) | `#000000` | `#6B7280` | Inter, system | Light |
+| Reform | `#FFFFFF` / `#1a1a2e` (terminal) | `#48EC80` (Green) | `#EDE630` (Yellow) | `#000000` | `#6B7280` | Inter, system | Light |
+| GrowthNode | `#0f0a1a` (all scenes) | `#8B5CF6` (Purple) | `#3B82F6` (Blue) | `#FFFFFF` | `#a1a1aa` | Inter, system | Dark |
+| MIA | `#F7F4FA` / `#1c1422` (dark) | `#F1DE71` (Yellow) | `#7184F1` (Purple) | `#1c1422` / `#f7f4fa` (dark) | `rgba(28,20,34,0.62)` | system-ui, -apple-system, Segoe UI | Light |
+
+**MIA accent palette**: Blue `#71C4F1`, Purple `#7184F1`, Pink `#F171C4`, Green `#71F19E`
+
+**Custom brands**: If the brand is not listed above, define colors from the brand website or guidelines provided in Step 0. Fill the same roles: background, primary accent, secondary accent, text primary, text muted, font, theme.
 
 **Typography**: Font family, weight hierarchy, sizes at target resolution.
 
@@ -301,3 +340,4 @@ These apply to all Remotion code. Violations will produce incorrect output.
 3. **Use `staticFile()`** for all assets in the `public/` folder
 4. **Time in seconds**: multiply by `fps` from `useVideoConfig()` to get frames
 5. **No third-party animation libraries** driving motion (disable their animations, use `useCurrentFrame()` instead)
+6. **Every variant must be self-explanatory.** A viewer scrolling with zero context should understand the value from the video alone. No scene should depend on external knowledge. Copy must carry the full message independently.
