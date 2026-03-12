@@ -1,7 +1,7 @@
 ---
 name: remotion
-version: 3.1.0
-description: Remotion video creation in React - process workflow, 6 video brief variants (A-F), and technical best practices
+version: 4.0.0
+description: Remotion video creation in React - dynamic concept catalog for video briefs, cold audience optimization, and technical best practices
 metadata:
   tags: remotion, video, react, animation, composition, programmatic-video
 ---
@@ -17,7 +17,7 @@ Use this skill when:
 
 ## Video Creation Process
 
-When creating a new Remotion video, follow this 8-step process. Step 2 generates 6 video brief variants (A-F) for selection. Steps 4 and 5 are approval gates. Do not write code until both are approved.
+When creating a new Remotion video, follow this 8-step process. Step 2 selects 3-5 concepts from the catalog based on the brief and cold audience optimization. Steps 4 and 5 are approval gates. Do not write code until both are approved.
 
 For the full process document with templates and decision matrices, read [references/video-creation-process.md](references/video-creation-process.md).
 
@@ -45,134 +45,55 @@ Tone: [Descriptive words for the feel]
 Brand: [Brand name from Step 0]
 ```
 
-### Step 2: Generate 5 Video Brief Variants
+### Step 2: Concept Selection (3-5 Recommended Concepts)
 
-Present all 6 variants as one-page briefs. The user selects one (or a hybrid) before proceeding to specs.
+After locking the creative brief, analyze it to select the best video concepts for this specific use case. Do not present a fixed set of variants. Draw from the concept catalog in [references/concept-catalog.md](references/concept-catalog.md).
 
-#### Variant A: Problem → Solution Story
+**The catalog contains 18 primary concepts, 8 visual style modifiers, and 5 cold audience hook patterns.** Read it before generating recommendations.
 
-A narrative arc that names the audience's pain, then reveals the solution. Motion graphics with text animation.
+#### Selection Process
 
-| # | Time | Visual | Overlay Text |
-|---|------|--------|-------------|
-| 1 | 0-4s | Bold text on brand background, subtle pulse/shake animation | Problem statement (1-2 lines) |
-| 2 | 4-8s | Pain amplification — icons, red/warning accents, visual tension | Why the problem persists (1 line) |
-| 3 | 8-14s | Transition to solution — brand accent color takes over, clean layout | Solution introduction + key benefit |
-| 4 | 14-18s | Feature/capability highlight with supporting visual | Second benefit or proof point |
-| 5 | Last 3s | Brand card | Logo + tagline + URL + CTA |
+1. **Score concepts against the brief.** For each concept in the catalog, evaluate:
+   - Does the concept's "Best For" match the content type?
+   - Can the core message land in 15-30 seconds with this structure?
+   - Does the concept work at the target duration and dimensions?
+   - Does the brief provide the data/visuals this concept needs?
 
-**Best for**: Blog posts, playbooks, lead magnets, product updates, tool launches.
+2. **Apply the cold audience filter.** For each scored concept, evaluate:
+   - Can a viewer with ZERO prior context understand the value in the first 3 seconds?
+   - Does the concept create scroll-stopping visual motion in the opening beat?
+   - Does the concept avoid requiring prior knowledge of the brand, product, or problem space?
+   - If the concept naturally front-loads a result or data point (metric-counter, animated-infographic, before-after), it is inherently stronger for cold audiences than narrative concepts that need setup time.
 
-#### Variant B: Asset Demo (Conditional)
+3. **Select a hook pattern.** For each recommended concept, pair it with a hook pattern from the catalog:
+   - Content with data → result-first
+   - Product launches and tools → pattern-interrupt
+   - Thought leadership and education → curiosity-gap
+   - Trust-building content → social-proof-hook
+   - Competitive and pricing content → loss-aversion
 
-**If content type is CLI tool, terminal-based tool, or GitHub repo with CLI** → Animated Terminal Demo:
+4. **Present 3-5 recommended concepts** as one-page briefs. For each:
+   - Concept name (from the catalog) and one-sentence description
+   - Why it fits this brief (1-2 sentences referencing the specific content and audience)
+   - Recommended hook pattern and opening beat description
+   - Scene-by-scene table (from the catalog template, customized for this content)
+   - Optional visual style modifier if one enhances the concept
 
-| # | Time | Visual | Overlay Text |
-|---|------|--------|-------------|
-| 1 | 0-3s | Dark terminal background, cursor blink | Hook: what the tool does (one line) |
-| 2 | 3-7s | Command typed character by character | The command being run |
-| 3 | 7-12s | Output renders line by line with syntax highlighting | Key output with annotation callout |
-| 4 | 12-16s | Second command or output section | Second capability or result |
-| 5 | Last 3s | Brand card (matches terminal theme) | Logo + tagline + URL |
+5. **Rank the recommendations.** Mark the top recommendation and explain why.
 
-**If content type is anything else** → Content Preview Scroll-Through:
+6. **User selects one (or a hybrid of two).** Lock the selected concept before proceeding to Step 3.
 
-| # | Time | Visual | Overlay Text |
-|---|------|--------|-------------|
-| 1 | 0-3s | Title card / asset cover with brand background | Hook from editorial angle |
-| 2 | 3-8s | Simulated scroll through the asset. Callout annotation highlights a key section | Plain-language benefit |
-| 3 | 8-13s | Zoom into a specific chart, result, framework, or quote | Second benefit or proof point |
-| 4 | 13-18s | Additional section preview with callout annotation | Third key takeaway |
-| 5 | Last 3s | Brand card | Logo + tagline + URL |
+#### Cold Audience Optimization Rules
 
-**Best for**: Tool launches (terminal), case studies, industry reports, templates, webinars (scroll-through).
+These rules apply to all concept recommendations and override content-type defaults when they conflict:
 
-#### Variant C: Stats/Impact Kinetic Typography
-
-Pure motion graphics. Animated numbers, bold typography, no UI or screenshots. Each scene is one stat or impact statement.
-
-| # | Time | Visual | Overlay Text |
-|---|------|--------|-------------|
-| 1 | 0-4s | Large animated number counting up (e.g., 147%) on brand background | Metric label below the number |
-| 2 | 4-8s | Second stat with different animation (scale, slide, typewriter) | Context line |
-| 3 | 8-12s | Third stat or key quote in large type | Attribution or source |
-| 4 | 12-16s | Summary statement, all key numbers visible | Synthesis line |
-| 5 | Last 3s | Brand card | Logo + tagline + URL |
-
-**Best for**: Case studies, industry reports, event recaps, client testimonials, any asset with strong numbers.
-
-#### Variant D: Before/After Split Screen
-
-Side-by-side or sequential comparison showing transformation. The screen splits (vertically or horizontally) to contrast the "before" state with the "after" state.
-
-| # | Time | Visual | Overlay Text |
-|---|------|--------|-------------|
-| 1 | 0-3s | Full-screen "Before" label with problem visual (cluttered dashboard, manual process, old workflow) | "Before [Product/Asset]" |
-| 2 | 3-7s | Before state details — pain points highlighted with red/warning accents | 1-2 specific problems (e.g., "Manual reporting. 4 hours/week.") |
-| 3 | 7-8s | Split-screen wipe transition — brand accent color divider slides across | Transition moment |
-| 4 | 8-13s | "After" state — clean, optimized, brand-colored visuals showing the outcome | Key result (e.g., "Automated. 12 minutes.") |
-| 5 | 13-17s | After state details — metrics, improvements, green/success accents | 1-2 proof points |
-| 6 | Last 3s | Brand card | Logo + tagline + URL |
-
-**Best for**: Case studies, product updates, client testimonials, tool launches, playbooks, any asset with a clear transformation narrative.
-
-#### Variant E: Social Proof Montage
-
-Cycles through testimonials, client quotes, logos, and metrics in a rhythm-driven sequence. Each "card" animates in, holds, and exits.
-
-| # | Time | Visual | Overlay Text |
-|---|------|--------|-------------|
-| 1 | 0-3s | Hook stat or headline claim on brand background | Bold claim (e.g., "Trusted by 200+ B2B SaaS teams") |
-| 2 | 3-7s | First testimonial card — quote + name + company logo, slides in | Client quote (1-2 lines) |
-| 3 | 7-11s | Second testimonial card with different animation (scale, fade, flip) | Second client quote |
-| 4 | 11-15s | Metrics bar — animated counters showing 2-3 aggregate results | Key numbers (e.g., "147% avg MQL increase") |
-| 5 | 15-17s | Logo wall — 6-12 client/partner logos fade in on grid | "Join [X]+ companies" |
-| 6 | Last 3s | Brand card | Logo + tagline + URL + CTA |
-
-**Best for**: Client testimonials, case studies, event recaps, industry reports, any asset that benefits from third-party credibility.
-
-#### Variant F: Framework/Process Visualization
-
-Progressive build of a conceptual framework or process diagram. Each scene adds a node/step to the visual, building the full picture before the viewer's eyes. Use cases ground the abstract framework in concrete applications.
-
-| # | Time | Visual | Overlay Text |
-|---|------|--------|-------------|
-| 1 | 0-3.5s | Bold text on brand background, staggered line reveals | Hook: name the tension (e.g., "You have the data. You have the tools. You're missing the loop.") |
-| 2 | 3.5-6s | Logo/wordmark spring entrance | Brand identification + tagline |
-| 3 | 6-8s | Tagline (uppercase, small) + headline (large) | Framework title (e.g., "The Agentic Loop Framework") |
-| 4-7 | 8-19s | Progressive node build: each node springs in with connector paths drawing between them. Descriptions swap per node. Diagram persists across scenes. | Node name + one-line description per stage |
-| 8 | 19-22s | All nodes visible, loop/flow animation active (pulse dot, accelerating cycle), visual acceleration | Compounding/reinforcement message (e.g., "Results feed back. The loop compounds.") |
-| 9 | 22-28s | Framework dims to background (~10% opacity). Use cases cycle (fade in/hold/fade out, ~1.5s each) | 3-5 concrete applications with category labels |
-| 10 | Last 2-3s | Brand card | URL + closing tagline + CTA |
-
-**Key characteristics:**
-- The visual is built progressively (not revealed all at once)
-- Each scene adds a component to a persistent diagram that stays visible across scenes
-- Connector paths draw on with SVG dash-offset animation
-- Use cases ground the abstract framework in real applications
-- Animation: spring entrances for nodes, SVG path drawing for connectors, pulse/comet for loops, blur-to-sharp materializations for polish
-
-**Best for**: Proprietary frameworks, methodologies, process explanations, "how it works" content, strategy documents, approach overviews.
-
-### Variant Selection Guide
-
-| Content Type | Recommended Variants (in order) |
-|---|---|
-| Blog post | A, C, D |
-| Case study | C, D, E |
-| Webinar / Podcast | A, B (scroll-through), C |
-| Lead magnet / Playbook / Guide | A, B (scroll-through), D, F |
-| Product update | A, D, C |
-| Tool launch (CLI) | B (terminal), A, C |
-| Tool launch (non-CLI) | B (scroll-through), A, D |
-| Industry report | C, A, B (scroll-through) |
-| Event recap | C, E, A |
-| Client testimonial | E, C, D |
-| Template | B (scroll-through), A, D |
-| AI demo / Custom GPT | B (terminal or scroll-through), A, C |
-| Framework / Methodology | F, A, C |
-| Strategy document | F, A, C |
-| "How it works" content | F, A, D |
+- **Default assumption: cold audience.** Unless the brief explicitly states the audience is warm (retargeting, existing users, newsletter subscribers), assume zero brand awareness.
+- **First scene requirements for cold audiences:**
+  1. A visual pattern interrupt (motion, color contrast, or scale change)
+  2. Text that names a problem or result the viewer recognizes WITHOUT knowing the brand
+  3. No brand identification in scene 1 (save brand card for scene 2 or later)
+- **Hook pattern restrictions for cold audiences:** Use pattern-interrupt, result-first, or loss-aversion. Avoid curiosity-gap unless the stat/claim is universally relatable without brand context.
+- **Concept flexibility:** If no concept in the catalog fits the brief well for a cold audience, create a hybrid or adapt an existing concept. The catalog is a starting library, not a constraint.
 
 ### Step 3: Format and Specs
 
@@ -194,7 +115,7 @@ FPS: 30
 Composition ID: [PascalCase]
 Loop: [yes/no]
 Output formats: [mp4, gif, webm]
-Selected variant: [A/B/C/D/E or hybrid]
+Selected concept: [concept-id from catalog, or hybrid]
 ```
 
 ### Step 4: Scene Breakdown (APPROVAL GATE)
@@ -327,6 +248,7 @@ Read individual rule files for API details and code examples.
 
 ## References
 
+- [references/concept-catalog.md](references/concept-catalog.md) - Concept catalog with 18 primary concepts, 8 visual style modifiers, 5 cold audience hook patterns, selection criteria, and content-type affinity matrix
 - [references/video-creation-process.md](references/video-creation-process.md) - Full process document with templates, decision matrices, and detailed guidance
 
 ---
@@ -340,4 +262,4 @@ These apply to all Remotion code. Violations will produce incorrect output.
 3. **Use `staticFile()`** for all assets in the `public/` folder
 4. **Time in seconds**: multiply by `fps` from `useVideoConfig()` to get frames
 5. **No third-party animation libraries** driving motion (disable their animations, use `useCurrentFrame()` instead)
-6. **Every variant must be self-explanatory.** A viewer scrolling with zero context should understand the value from the video alone. No scene should depend on external knowledge. Copy must carry the full message independently.
+6. **Every concept must be self-explanatory.** A viewer scrolling with zero context should understand the value from the video alone. No scene should depend on external knowledge. Copy must carry the full message independently. Always assume a cold audience unless the brief says otherwise.
